@@ -8,13 +8,15 @@ int main(int argc, char *argv[])
 {
   create_ctx(16384, f_ping, NULL);
   create_ctx(16384, f_pong, NULL);
-  yield();
+  start_sched();
+  printf("je suis revenu dans le main\n");
   exit(EXIT_SUCCESS);
 }
 
 void f_ping(void *args)
 {
-  while(1) {
+  int i = 10000;
+  while(i--) {
     printf("A") ;
     yield();
     printf("B") ;
@@ -26,7 +28,8 @@ void f_ping(void *args)
 
 void f_pong(void *args)
 {
-  while(1) {
+  int i =10000;
+  while(i--) {
     printf("1") ;
     yield();
     printf("2") ;

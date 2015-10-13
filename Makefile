@@ -8,14 +8,14 @@ all:
 ctx.o : ./hw/hw.h ctx.c 
 	$(CC) $(CFLAGS) -c ctx.c
 
-main : ./hw/hw.o irq.o ctx.o main.o
-	$(CC) $(CFLAGS) -o main ./hw/hw.o irq.o ctx.o main.o
+main : ./hw/hw.o ctx.o main.o sem.o
+	$(CC) $(CFLAGS) -o main ./hw/hw.o ctx.o main.o sem.o
 
-main.o: main.c ctx.h hw/hw.h
+main.o: main.c ctx.h hw/hw.h sem.h
 	$(CC) $(CFLAGS) -c main.c
 
-irq.o : ./hw/hw.h irq.c
-	$(CC) $(CFLAGS) -c irq.c
+sem.o : ctx.h sem.c 
+	$(CC) $(CFLAGS) -c sem.c
 
 clean:
-	-rm *.o main  .#* *~
+	-rm *.o main .#* *~

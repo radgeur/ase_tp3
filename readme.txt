@@ -4,4 +4,4 @@ LAMBERT Natacha
 LEPRERE Rémy
 
 
-Pas de remarque particulière sur ce tp
+sémaphores implémentaient mais pas encore utiliser
