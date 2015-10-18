@@ -72,7 +72,7 @@ void switch_to_ctx (struct ctx_s *next) {
   irq_enable();
 }
 
-/*create a context of a function and add it to the ring*/
+/*create a context for a function and add it to the ring*/
 void create_ctx(int stack_size, func_t *f, void *args) {
   struct ctx_s *new = malloc(sizeof(struct ctx_s));
   init_ctx(new, stack_size, f, args);
