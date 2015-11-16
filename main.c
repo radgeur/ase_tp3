@@ -36,7 +36,7 @@ int main(int argc, char *argv[])
 
 void producteur(void *args) {
   int i = 1;
-  while (i<=1000) {
+  while (i<=4) {
     printf("Le produit numéro %i a été confectionné\n", i);
     sem_down(emptySem);
     sem_down(mutex);
@@ -51,7 +51,7 @@ void producteur(void *args) {
 
 void consommateur(void *args) {
   int i = 1;
-  while (i<=1000) {
+  while (i<=4) {
     sem_down(fullSem);
     sem_down(mutex);
     printf("Le produit numéro %i a été pris\n", i);
@@ -66,7 +66,7 @@ void consommateur(void *args) {
 
 void f_ping(void *args)
 {
-  int i = 10000;
+  int i = 4;
   while(i--) {
     printf("A") ;
     /*sem_down(sem);*/
@@ -82,7 +82,7 @@ void f_ping(void *args)
 
 void f_pong(void *args)
 {
-  int i =10000;
+  int i = 4;
   while(i--) {
     printf("1") ;
     /*sem_up(sem);*/
